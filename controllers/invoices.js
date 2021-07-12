@@ -12,12 +12,12 @@ invoicesRouter.get('/', async (request, response) => {
         if(request.query.status==='late'){
 
             // check for all invoices if the due date has passed away and update their status to late
-            await invoices.forEach( async (invoice) => {
+            for await (let invoice of invoices) {
                 if(invoice.status==='due' && dateUtil.isLate(invoice.dueDate)){
                     invoice.status = 'late'
                     await invoice.save()
                 }
-            })
+            }
 
             // retrieve late invoices from the updated collection
             const lateInvoices = await Invoice.find({status: 'late'})

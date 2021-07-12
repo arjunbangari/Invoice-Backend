@@ -5,8 +5,9 @@ GET /api/invoices : Get all the invoices
 GET /api/invoices?status=late : Get all the late invoices 
 
 GET /api/invoices/:id : Get an invoice by id
-<br/>
 
+
+<br/>
 POST /api/invoices : Create an invoice ( After creation of an invoice a mail is sent to the email of the recipient )
 
 Note: Following fields required in body -
