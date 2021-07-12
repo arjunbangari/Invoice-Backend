@@ -5,6 +5,7 @@ const cors = require('cors')
 const http = require('http')
 const invoicesRouter = require('./controllers/invoices')
 const mongoose = require('mongoose')
+const scheduler = require('./utils/scheduler')
 
 mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
     .then(() => {
@@ -18,6 +19,9 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/api/invoices', invoicesRouter)
+
+scheduler.updateLateInvoices
+scheduler.lateInvoicesEmailAlert
 
 const server = http.createServer(app)
 
