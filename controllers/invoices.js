@@ -7,22 +7,8 @@ const emailUtil = require('../utils/email')
 // get all invoices
 invoicesRouter.get('/', async (request, response) => {
     try{
-        // if query.status==late then update the status of invoices
-        if(request.query.status==='late'){
-            const invoices = await Invoice.find({})
-
-            // check for all invoices if the due date has passed away and update their status to late
-            for await (let invoice of invoices) {
-                if(invoice.status==='due' && dateUtil.isLate(invoice.dueDate)){
-                    invoice.status = 'late'
-                    await invoice.save()
-                }
-            }
-        } 
-
         const requiredInvoices = await Invoice.find(request.query)
         return response.json(requiredInvoices)
-
     } catch(err) {
         console.log(err)
         response.status(400).json({ error: error.message })
