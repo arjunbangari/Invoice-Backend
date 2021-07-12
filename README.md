@@ -1,3 +1,13 @@
+# Features
+- Create a new invoice (includes line items and description)
+- Update the status of an invoice (due, paid or late)
+- Send the invoice via email ( After creation of an invoice, the email is automatically sent )
+- View all invoices
+- View late invoices (payment is not done and due date has passed away)
+- Added due date to invoices
+- Scheduler to alert users via email if payment is late. Scheduler checks on alternate days.
+- Scheduler to update the status of invoices as late every day on midnight.
+
 # API Routes
 
 **GET** */api/invoices* : Get all the invoices 
