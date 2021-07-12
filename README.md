@@ -1,31 +1,31 @@
-API Routes
+# API Routes
 
-GET /api/invoices : Get all the invoices 
+**GET** */api/invoices* : Get all the invoices 
 
-GET /api/invoices?status=late : Get all the late invoices 
+**GET** */api/invoices?status=late* : Get all the late invoices 
 
-GET /api/invoices/:id : Get an invoice by id
+**GET** */api/invoices/:id* : Get an invoice by id
 
 
-<br/>
-POST /api/invoices : Create an invoice ( After creation of an invoice a mail is sent to the email of the recipient )
+\
+**POST** */api/invoices* : Create an invoice ( After creation of an invoice a mail is sent to the email of the recipient )
 
-Note: Following fields required in body -
+**Note:** Following fields required in body of POST request -
 
-        - Name
+- Name
         
-        - Email
+- Email
         
-        - Subject
+- Subject
         
-        - Description
+- Description
         
-        - Line Items :
+- Line Items :
         
-                - Labor : Rate, Hours
+  - Labor : Rate, Hours
                 
-                - Items : Array of items with each item having ItemName, Price, Quantity
+  - Items : Array of items with each item having ItemName, Price, Quantity
                 
 
-<br/>
-PUT /api/invoices/:id : Update the status of an invoice
+\
+**PUT** */api/invoices/:id* : Update the status of an invoice
